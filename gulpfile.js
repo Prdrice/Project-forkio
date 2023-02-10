@@ -39,7 +39,7 @@ const copyHtml = () => {
 
 const copyImgs = () => {
     return gulp
-        .src("./src/assets/img/*")
+        .src("./src/img/**")
         .pipe(imagemin())
         .pipe(gulp.dest("./dist/img"))
 };
@@ -88,3 +88,5 @@ const sync = () => {
 
 export const build = gulp.series(cleanDist, gulp.parallel(copyHtml, copyImgs, copyCss, copyJs));
 export const dev = gulp.series(build, sync);
+
+
