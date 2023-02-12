@@ -138,16 +138,21 @@
     }
 
     &__prices{
+      max-width: 571px;
+      margin: 0 auto;
       flex-wrap: wrap;
       justify-content: flex-end;
+      padding: 0 2% 97px;
     }
 
     &-price-item {
       width: 46%;
+      max-width: 257px;
 
       &--active{
         margin-top: 30px;
         width: 52%;
+        max-width: 299px;
       }
 
       &:nth-child(2n+1){
