@@ -1,20 +1,25 @@
-//  header section
 @import "variables";
 @import "mixins";
 
+//  header section
 .header {
   width: 100%;
   background-color: $black;
-  padding-top: 33px;
+  padding-top: 40px;
   z-index: 10;
   position: fixed;
 
-  @include media("max", "md") {
+  @include media("max", "l") {
     position: relative;
     padding-bottom: 50px;
     background-color: $blackLight;
   }
   @include media("max", "sm") {
+    position: relative;
+    padding-bottom: 50px;
+    background-color: $blackLight;
+  }
+  @include media("max", "s") {
     padding-bottom: 25px;
     padding-top: 25px;
   }
@@ -23,19 +28,30 @@
     padding: 20px;
 
     @include flex-between;
-    max-width: 90%;
+    max-width: 100%;
     margin: 0 auto;
 
     @include media("max", "l") {
       max-width: 100%;
-      margin: 0 20px;
+      justify-content: none;
+    }
+    @include media("max", "mdl") {
+      max-width: 100%;
+      justify-content: none;
+    }
+    @include media("max", "s") {
+      max-width: 480px;
+      margin: 0px 20px;
+    }
+    @include media("min", "xs") {
+      margin: 0px 20px;
     }
   }
   &__img {
     display: block;
     min-width: 100px;
 
-    @include media("max", "sm") {
+    @include media("max", "s") {
       display: none;
     }
     &:hover {
@@ -43,8 +59,10 @@
     }
     &-mob {
       display: none;
-
-      @include media("max", "sm") {
+      @include media("max", "s") {
+        display: block;
+      }
+      @include media("max", "xs") {
         display: block;
       }
       &:hover {
@@ -60,7 +78,7 @@
     @include flex-between;
     align-items: center;
     flex-direction: row;
-    margin-right: 48px;
+    max-width: 100%;
 
     @include media("max", "l") {
       position: absolute;
@@ -70,17 +88,26 @@
       right: 0;
       margin-right: 0;
       font-size: 15px;
+      bottom: 15%;
     }
 
     @include media("max", "md") {
       position: absolute;
       justify-content: center;
-      left: 0;
+      left: 25px;
       right: 0;
       margin-right: 0;
-      bottom: 20%;
+      bottom: 15%;
     }
     @include media("max", "sm") {
+      position: absolute;
+      justify-content: center;
+      left: 25px;
+      right: 0;
+      width: 90%;
+      bottom: 15%;
+    }
+    @include media("max", "s") {
       display: none;
       flex-direction: column;
       margin: auto;
@@ -90,20 +117,42 @@
       width: 90%;
       transform: translate(0, 100%);
     }
+    @media screen and (max-width: 480px) {
+      display: flex;
+      justify-content: center;
+    }
   }
   &__btn {
-    @include media("max", "sm") {
+    @include media("max", "s") {
+      line-height: 15px;
+      font-size: 15px;
+      margin-right: 60px;
+      justify-content: space-around;
+    }
+    @include media("min", "xs") {
+      max-width: 100%;
+      line-height: 15px;
+      font-size: 15px;
       margin-right: 15px;
-      margin-left: 20px;
+      display: flex;
+      justify-content: space-around;
     }
   }
   &__menu-item {
     display: inline-block;
     margin-left: 48px;
+    &:last-child {
+      margin-right: 48px;
+    }
     @include media("max", "l") {
-      margin-left: 25px;
+      font-size: 16px;
     }
     @include media("max", "sm") {
+      &:last-child {
+        margin-right: 0px;
+      }
+    }
+    @include media("max", "s") {
       @include flex-center;
       justify-content: flex-start;
       margin-left: 0;
@@ -123,13 +172,14 @@
     color: $main-color;
     transition: 0.3s;
     @include montserrat-bold;
-    @include media("max", "l") {
-      font-size: 15px;
-    }
+    
     @include media("max", "md") {
       font-size: 16px;
     }
     @include media("max", "sm") {
+      font-size: 16px;
+    }
+    @include media("max", "s") {
       font-size: 26px;
       @include montserrat-normal;
       margin-left: 40px;
@@ -204,7 +254,11 @@
     }
     @include media("max", "sm") {
       font-size: 48px;
-      margin-top: 50px;
+      margin-top: 80px;
+    }
+    @include media("max", "s") {
+      font-size: 48px;
+      margin-top: 100px;
     }
   }
   &__subtitle {
@@ -280,7 +334,7 @@
 
 //burger menu
 
-@media screen and (max-width: 572px) {
+@media screen and (max-width: 480px) {
   .header {
     &__burger {
       z-index: 5;
