@@ -47,7 +47,7 @@
   flex-wrap: wrap;
 }
 
-$sizes: ("xs":420px, "sm":576px, "md":768px, "l":1015px, "xl":1200px);
+$sizes: ("xs":320px, "s":480px, "sm":576px, "md":768px, "mdl":769px, "l":992px, "xl":1200px);
 
 @mixin media($minmax, $media) {
   @each $size, $resolution in $sizes {
