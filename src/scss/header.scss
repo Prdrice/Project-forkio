@@ -72,6 +72,9 @@
   }
   &__menu {
     @include flex-center;
+    @include media("max", "s") {
+      flex: 2
+    }
   }
 
   &__menu-nav {
